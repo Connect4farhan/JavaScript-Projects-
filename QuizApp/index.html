@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Quiz App</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="score"></div>
+            <h1>Quiz App</h1>
+            <hr>
+        <div class="quiz">
+            <p class="question">Q# 01 : what does HTML stnad for ?</p>
+            <form>
+                <ul>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="A">
+                            a) HyperText Markup Language
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="B">
+                            b) HyperText Machine Language
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="C">
+                            c) Hyper Transfer Markup Language
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="D">
+                            d) HyperLink & Text Markup Language
+                        </label>
+                    </li>
+                </ul>
+                <p class="question">Q# 02 : which CSS property is used to control the spacing between elements?</p>
+                <ul>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="A">
+                            a) Margin
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="B">
+                            b) Padding
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="C">
+                            c) spacing
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="D">
+                            d) border-spacing
+                        </label>
+                    </li>
+                </ul>
+                <p class="question">Q# 03 : What is JavaScript Function used to select HTML by its ID?</p>
+                <ul>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="A">
+                            a) document.qurey
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="B">
+                            b) getElmenetById
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="C">
+                            c) slectElements
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="D">
+                            d) findElementsById
+                        </label>
+                    </li>
+                </ul>
+                <p class="question">Q# 04 : which HTML tag is used to creat an order list?</p>
+                <ul>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="A">
+                            a) ul
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="B">
+                            b) li
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="C">
+                            c) ol
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" value="D">
+                            d) dl
+                        </label>
+                    </li>
+                </ul>
+            </form>
+            <button type="submit" id="submitAnswer" onclick=submitAnswer()> Submit</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
