@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance Product Exersice</title>
+</head>
+
+<body>
+    <script>
+
+        const products = [
+            {
+                id: 101,
+                name: "Sony LED 40 inch",
+                category: "Electronics",
+                brand: "Sony",
+                sku: "SONY-LED-40",
+                description: "40 inch Full HD LED TV with smart features.",
+                isActive: true,
+                createdAt: "2021-01-15",
+                updatedAt: "2022-10-22",
+                tags: ["LED", "Smart TV", "HD"],
+                supplier: {
+                    name: "ElectroHouse",
+                    contact: "support@electrohouse.com"
+                },
+                variations: [
+                    {
+                        id: 1,
+                        color: "Black",
+                        price: 50000,
+                        quantity: 5,
+                        warranty: "2 years",
+                        discount: 0,
+                        isAvailable: true
+                    },
+                    {
+                        id: 2,
+                        color: "Red",
+                        price: 50000,
+                        quantity: 1,
+                        warranty: "2 years",
+                        discount: 5,
+                        isAvailable: true
+                    },
+                    {
+                        id: 3,
+                        color: "Silver",
+                        price: 55000,
+                        quantity: 8,
+                        warranty: "3 years",
+                        discount: 10,
+                        isAvailable: false
+                    }
+                ],
+                reviews: [
+                    {
+                        id: 1,
+                        user: {
+                            name: "Ahmad",
+                            email: "ahmad@gmail.com",
+                            location: "Lahore"
+                        },
+                        rating: 4.0,
+                        title: "Good Product",
+                        comment: "Very good product for the price.",
+                        date: "2021-02-06",
+                        approved: true,
+                        likes: 2,
+                        verifiedPurchase: true
+                    },
+                    {
+                        id: 2,
+                        user: {
+                            name: "Zubair",
+                            email: "zubair@yahoo.com",
+                            location: "Karachi"
+                        },
+                        rating: 4.5,
+                        title: "Awesome",
+                        comment: "I’m impressed by the quality.",
+                        date: "2021-02-05",
+                        approved: false,
+                        likes: 5,
+                        verifiedPurchase: false
+                    }
+                ]
+            }
+        ];
+
+        //_______________________________________________________________________________________
+        console.log("1. List all product names with their supplier name and contact ?");
+
+        const productSupplierInfo = products.map(product => ({
+            productName: product.name,
+            supplierName: product.supplier.name,
+            supplierContact: product.supplier.contact
+        }));
+        console.log(productSupplierInfo);
+
+
+        //_________________________________________________________________________________________
+        console.log("2. Display all available colors for active products ?");
+
+        const availableColors = products.filter(product => product.isActive).flatMap(product =>product.variations.filter(variation => variation.isAvailable).map(variation => variation.color));
+        console.log(availableColors);
+
+
+        //_________________________________________________________________________________________
+        console.log("3. Count the total quantity of all variations that are currently available ?");
+
+        const totalAvailableQuantity = products.flatMap(product => product.variations).filter(variation => variation.isAvailable).reduce((sum, variation) => sum + variation.quantity, 0);
+        console.log(totalAvailableQuantity);
+
+
+        //_________________________________________________________________________________________
+        console.log("List all products that have at least one discounted variation ?");
+
+        const discountedProducts = products.filter(product =>product.variations.some(variation => variation.discount > 0));
+        console.log(discountedProducts);
+
+
+        //_________________________________________________________________________________________
+        
+        console.log(" 5. Calculate and display the effective price (after discount) for each variation ?");
+
+        const variationsWithEffectivePrice = products.flatMap(product => {
+        return product.variations.map(variation => ({
+        productId: product.id,
+        productName: product.name,
+        color: variation.color,
+        originalPrice: variation.price,
+        discountPercentage: variation.discount,
+        effectivePrice: variation.price * (1 - variation.discount / 100),
+        isAvailable: variation.isAvailable
+        }));
+        });
+
+        console.log(variationsWithEffectivePrice);
+
+        
+        //_________________________________________________________________________________________
+        
+    </script>
+</body>
+
+</html>
